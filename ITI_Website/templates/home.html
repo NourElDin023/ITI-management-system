@@ -2,11 +2,11 @@
 {% block title %}Home{% endblock %}
 {% block header %}
 <a class="nav-link active" href="{% url 'home' %}">Home</a>
+
+
+{% if request.user.is_authenticated %}
 <a class="nav-link" href="{% url 'trainee' %}">Trainees</a>
 <a class="nav-link" href="{% url 'course' %}">Courses</a>
-
-
-{% if is_logged_in %}
 <a class="nav-link" href="#">Logout</a>
 {% else %}
 <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -17,10 +17,12 @@
 
 {% block content %}
 <section class="container text-white text-center mt-5">
-    <h1>Welcome to ITI Course Management</h1>
-    {% if is_logged_in %}
+    <h1>Welcome <strong
+            class="text-success text-capitalize text-decoration-underline">{{request.user.username}}</strong> to ITI
+        Course Management</h1>
+    {% if request.user.is_authenticated %}
     <p class="fs-4 pt-3">Here you can manage Trainees and Courses</p>
-    <a href="{% url 'login' %}" class="d-block btn btn-success w-50 mx-auto m-3">Logout</a>
+    <a href="{% url 'logout' %}" class="d-block btn btn-danger w-25 mx-auto m-3 mt-5">Logout</a>
     {% else %}
     <p>Please log in to access more features.</p>
     <a href="{% url 'login' %}" class="d-block btn btn-secondary w-50 mx-auto m-3">Login</a>

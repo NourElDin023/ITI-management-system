@@ -8,16 +8,16 @@
 {% endblock %}
 {% block content %}
 <section>
-    <form class="w-50 mx-auto">
+    <form class="w-50 mx-auto" method="POST">
+        {% csrf_token %}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control bg-dark-subtle focus-ring" id="exampleInputEmail1"
-                aria-describedby="emailHelp"
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control bg-dark-subtle focus-ring" id="username" name="username"
                 style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control bg-dark-subtle focus-ring" id="exampleInputPassword1"
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control bg-dark-subtle focus-ring" id="password" name="password"
                 style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
         </div>
         <div class="mb-3 form-check">
