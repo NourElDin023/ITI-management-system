@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
+
 {% block title %}Courses{% endblock %}
+
 {% block header %}
 <a class="nav-link" href="{% url 'home' %}">Home</a>
 <a class="nav-link" href="{% url 'trainee' %}">Trainees</a>
 <a class="nav-link active" href="{% url 'course' %}">Courses</a>
 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
 {% endblock %}
+
 {% block content %}
 <section>
     <h3 class="text-center mb-5">Courses Table</h3>
