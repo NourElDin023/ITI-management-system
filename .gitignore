@@ -15,3 +15,8 @@ ITI_Website/course_app/__pycache__/apps.cpython-313.pyc
 ITI_Website/course_app/__pycache__/models.cpython-313.pyc
 ITI_Website/course_app/__pycache__/views.cpython-313.pyc
 ITI_Website/course_app/migrations/__pycache__/__init__.cpython-313.pyc
+ITI_Website/trainee_app/migrations/__init__.py
+ITI_Website/trainee_app/__init__.py
+ITI_Website/ITI_Website/__init__.py
+ITI_Website/course_app/__init__.py
+ITI_Website/course_app/migrations/__init__.py
