@@ -4,4 +4,56 @@
 <a class="nav-link" href="{% url 'home' %}">Home</a>
 <a class="nav-link active" href="{% url 'trainee' %}">Trainees</a>
 <a class="nav-link" href="{% url 'course' %}">Courses</a>
+<a class="nav-link" href="#">Logout</a>
+{% endblock %}
+
+{% block content %}
+<section>
+    <h3 class="text-center mb-5">Trainees Table</h3>
+    <table class="table table-dark table-hover table-striped-columns text-center table-responsive table align-middle">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col" width="20%">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col" width="15%">Level</th>
+                <th scope="col">Join Date</th>
+                <th scope="col" width="15%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">0</th>
+                <td>Ahmed Hassan</td>
+                <td>23 Years</td>
+                <td>beginner</td>
+                <td>2023-01-04</td>
+                <td><button class="btn btn-success m-1">Edit</button>
+                    <button class="btn btn-danger  m-1">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Ahmed Ali</td>
+                <td>20 Years</td>
+                <td>beginner</td>
+                <td>2023-03-06</td>
+                <td><button class="btn btn-success m-1">Edit</button>
+                    <button class="btn btn-danger  m-1">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mohamed Gamal</td>
+                <td>25 Years</td>
+                <td>beginner</td>
+                <td>2023-02-02</td>
+                <td><button class="btn btn-success m-1">Edit</button>
+                    <button class="btn btn-danger  m-1">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success">Add New Trainee</button>
+</section>
 {% endblock %}

@@ -4,4 +4,27 @@
 <a class="nav-link active" href="{% url 'home' %}">Home</a>
 <a class="nav-link" href="{% url 'trainee' %}">Trainees</a>
 <a class="nav-link" href="{% url 'course' %}">Courses</a>
+
+
+{% if is_logged_in %}
+<a class="nav-link" href="#">Logout</a>
+{% else %}
+<a class="nav-link" href="{% url 'login' %}">Login</a>
+<a class="nav-link" href="{% url 'register' %}">Register</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<section class="container text-white text-center mt-5">
+    <h1>Welcome to ITI Course Management</h1>
+    {% if is_logged_in %}
+    <p class="fs-4 pt-3">Here you can manage Trainees and Courses</p>
+    <a href="{% url 'login' %}" class="d-block btn btn-success w-50 mx-auto m-3">Logout</a>
+    {% else %}
+    <p>Please log in to access more features.</p>
+    <a href="{% url 'login' %}" class="d-block btn btn-secondary w-50 mx-auto m-3">Login</a>
+    <a href="{% url 'register' %}" class=" d-block btn btn-success w-50 mx-auto m-2">Register</a>
+    {% endif %}
+</section>
 {% endblock %}

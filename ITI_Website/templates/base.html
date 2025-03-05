@@ -13,9 +13,9 @@
 
 <body class="bg-dark bg-gradient">
     <div class="d-flex flex-column min-vh-100 justify-content-between ">
-        <nav class="navbar bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand text-uppercase fw-bold fs-4" href="#">ITI Course</a>
+        <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold fs-3" href="{% url 'home' %}">ITI Course</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -27,13 +27,16 @@
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                         <a class="nav-link" href="{% url 'trainee' %}">Trainees</a>
                         <a class="nav-link" href="{% url 'course' %}">Courses</a>
+                        <a class="nav-link" href="{% url 'Login' %}">Login</a>
+                        <a class="nav-link" href="{% url 'Register' %}">Register</a>
                         {% endblock %}
                     </div>
                 </div>
             </div>
         </nav>
-        <main>
+        <main class="container flex-grow-1 py-5 text-white">
             {% block content %}
+            <h3>Content Here</h3>
             {% endblock %}
         </main>
         <footer class="navbar bg-dark text-white text-end">

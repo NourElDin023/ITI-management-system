@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block header %}
+<a class="nav-link" href="{% url 'home' %}">Home</a>
+<a class="nav-link" href="{% url 'trainee' %}">Trainees</a>
+<a class="nav-link" href="{% url 'course' %}">Courses</a>
+<a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endblock %}
+{% block content %}
+<section>
+    <form class="w-50 mx-auto">
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control bg-dark-subtle focus-ring" id="fullName" aria-describedby="emailHelp"
+                style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
+        </div>
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control bg-dark-subtle focus-ring" id="inputEmail"
+                aria-describedby="emailHelp"
+                style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control bg-dark-subtle focus-ring" id="inputPassword"
+                style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
+        </div>
+        <div class="mb-3">
+            <label for="confrimPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control bg-dark-subtle focus-ring" id="confrimPassword"
+                style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input bg-secondary" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Subscribe to newsletter</label>
+        </div>
+        <button type="submit" class="d-block btn btn-success w-50 mx-auto">Register</button>
+    </form>
+</section>
+{% endblock %}
