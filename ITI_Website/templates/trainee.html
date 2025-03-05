@@ -24,36 +24,19 @@
             </tr>
         </thead>
         <tbody>
+            {% for trainee in trainees %}
             <tr>
-                <th scope="row">0</th>
-                <td>Ahmed Hassan</td>
-                <td>23 Years</td>
-                <td>beginner</td>
-                <td>2023-01-04</td>
-                <td><button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger  m-1">Delete</button>
+                <th scope="row">{{ trainee.id }}</th>
+                <td>{{ trainee.name }}</td>
+                <td>{{ trainee.age }} Years</td>
+                <td>{{ trainee.level }}</td>
+                <td>{{ trainee.join_date }}</td>
+                <td>
+                    <button class="btn btn-success m-1">Edit</button>
+                    <button class="btn btn-danger m-1">Delete</button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Ahmed Ali</td>
-                <td>20 Years</td>
-                <td>beginner</td>
-                <td>2023-03-06</td>
-                <td><button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger  m-1">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Mohamed Gamal</td>
-                <td>25 Years</td>
-                <td>beginner</td>
-                <td>2023-02-02</td>
-                <td><button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger  m-1">Delete</button>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
     <button class="btn btn-success">Add New Trainee</button>

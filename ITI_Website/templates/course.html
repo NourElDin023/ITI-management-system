@@ -24,36 +24,19 @@
             </tr>
         </thead>
         <tbody>
+            {% for course in courses %}
             <tr>
-                <th scope="row">0</th>
-                <td>HTML</td>
-                <td>beginner</td>
-                <td>2023-01-01</td>
-                <td>2023-01-01</td>
-                <td><button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger  m-1">Delete</button>
+                <th scope="row">{{ course.id }}</th>
+                <td>{{ course.name }}</td>
+                <td>{{ course.level }}</td>
+                <td>{{ course.start_date }}</td>
+                <td>{{ course.end_date }}</td>
+                <td>
+                    <button class="btn btn-success m-1">Edit</button>
+                    <button class="btn btn-danger m-1">Delete</button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>CSS</td>
-                <td>beginner</td>
-                <td>2023-01-01</td>
-                <td>2023-01-01</td>
-                <td><button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger  m-1">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>JavaScript</td>
-                <td>beginner</td>
-                <td>2023-01-01</td>
-                <td>2023-01-01</td>
-                <td><button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger  m-1">Delete</button>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
     <button class="btn btn-success">Add New Course</button>
