@@ -12,33 +12,36 @@
 {% block content %}
 <section>
     <h3 class="text-center mb-5">Trainees Table</h3>
-    <table class="table table-dark table-hover table-striped-columns text-center table-responsive table align-middle">
-        <thead>
-            <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col" width="20%">Name</th>
-                <th scope="col">Age</th>
-                <th scope="col" width="15%">Level</th>
-                <th scope="col">Join Date</th>
-                <th scope="col" width="15%">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for trainee in trainees %}
-            <tr>
-                <th scope="row">{{ trainee.id }}</th>
-                <td>{{ trainee.name }}</td>
-                <td>{{ trainee.age }} Years</td>
-                <td>{{ trainee.level }}</td>
-                <td>{{ trainee.join_date }}</td>
-                <td>
-                    <button class="btn btn-success m-1">Edit</button>
-                    <button class="btn btn-danger m-1">Delete</button>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="col-md-12 mx-auto overflow-auto">
+        <table
+            class="table table-dark table-hover table-striped-columns text-center table-responsive table align-middle">
+            <thead>
+                <tr class="text-center align-middle">
+                    <th scope="col">ID</th>
+                    <th scope="col" width="20%">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col" width="15%">Level</th>
+                    <th scope="col">Join Date</th>
+                    <th scope="col" width="15%">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trainee in trainees %}
+                <tr>
+                    <th scope="row">{{ trainee.id }}</th>
+                    <td>{{ trainee.name }}</td>
+                    <td>{{ trainee.age }} Years</td>
+                    <td>{{ trainee.level }}</td>
+                    <td>{{ trainee.join_date }}</td>
+                    <td>
+                        <button class="btn btn-success m-1">Edit</button>
+                        <button class="btn btn-danger m-1">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <button class="btn btn-success">Add New Trainee</button>
 </section>
 {% endblock %}
