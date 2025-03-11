@@ -20,3 +20,8 @@ ITI_Website/trainee_app/__init__.py
 ITI_Website/ITI_Website/__init__.py
 ITI_Website/course_app/__init__.py
 ITI_Website/course_app/migrations/__init__.py
+ITI_Website/.vscode/settings.json
+ITI_Website/course_app/__pycache__/urls.cpython-313.pyc
+ITI_Website/course_app/migrations/__pycache__/0001_initial.cpython-313.pyc
+ITI_Website/trainee_app/migrations/__pycache__/0001_initial.cpython-313.pyc
+ITI_Website/trainee_app/__pycache__/urls.cpython-313.pyc
