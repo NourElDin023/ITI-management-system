@@ -1,15 +1,9 @@
-{% extends 'base.html' %}
-
-{% block title %}Trainees{% endblock %}
-
-{% block header %}
+{% extends 'base.html' %}{% block title %}Trainees{% endblock %} {% block header%}
 <a class="nav-link" href="{% url 'home' %}">Home</a>
 <a class="nav-link active" href="{% url 'trainee' %}">Trainees</a>
 <a class="nav-link" href="{% url 'course' %}">Courses</a>
 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <section>
     <h3 class="text-center mb-5">Trainees Table</h3>
     <div class="col-md-12 mx-auto overflow-auto">
@@ -29,9 +23,9 @@
                 {% for trainee in trainees %}
                 <tr>
                     <th scope="row">{{ trainee.id }}</th>
-                    <td>{{ trainee.name }}</td>
+                    <td class="text-capitalize">{{ trainee.name }}</td>
                     <td>{{ trainee.age }} Years</td>
-                    <td>{{ trainee.level }}</td>
+                    <td class="text-capitalize">{{ trainee.level }}</td>
                     <td>{{ trainee.join_date }}</td>
                     <td>
                         <button class="btn btn-success m-1">Edit</button>
@@ -42,6 +36,6 @@
             </tbody>
         </table>
     </div>
-    <button class="btn btn-success">Add New Trainee</button>
+    <a href="{% url 'insert_trainee' %}" class="btn btn-success">Add New Trainee</a>
 </section>
 {% endblock %}
