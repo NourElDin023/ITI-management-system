@@ -19,7 +19,7 @@
                     --bs-focus-ring-x: 10px;
                     --bs-focus-ring-y: 10px;
                     --bs-focus-ring-blur: 4px;
-                " required />
+                " required value="{{ trainee.name }}" />
         </div>
         <div class="mb-3">
             <label for="traineeAge" class="form-label">Trainee Age</label>
@@ -28,7 +28,7 @@
                     --bs-focus-ring-x: 10px;
                     --bs-focus-ring-y: 10px;
                     --bs-focus-ring-blur: 4px;
-                " required />
+                " required value="{{trainee.age}}" />
         </div>
         <div class="mb-3">
             <label for="traineeLevel" class="form-label">Trainee Level</label>
@@ -36,10 +36,9 @@
                             --bs-focus-ring-x: 10px;
                             --bs-focus-ring-y: 10px;
                             --bs-focus-ring-blur: 4px" required>
-                <option value="" selected disabled hidden>Choose Level</option>
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Advanced</option>
+                            <option value="Beginner" {% if trainee.level == "Beginner" %} selected {% endif %}>Beginner</option>
+                            <option value="Intermediate" {% if trainee.level == "Intermediate" %} selected {% endif %}>Intermediate</option>
+                            <option value="Advanced" {% if trainee.level == "Advanced" %} selected {% endif %}>Advanced</option>
             </select>
         </div>
         <div class="mb-3">
@@ -49,10 +48,10 @@
                     --bs-focus-ring-x: 10px;
                     --bs-focus-ring-y: 10px;
                     --bs-focus-ring-blur: 4px;
-                " required />
+                " required value="{{ trainee.join_date|date:'Y-m-d' }}" />
         </div>
         <button type="submit" class="d-block btn btn-success w-50 mx-auto">
-            Add Trainee
+            Update Trainee
         </button>
     </form>
 </section>

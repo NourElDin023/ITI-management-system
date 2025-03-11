@@ -28,8 +28,8 @@
                     <td class="text-capitalize">{{ trainee.level }}</td>
                     <td>{{ trainee.join_date }}</td>
                     <td>
-                        <button class="btn btn-success m-1">Edit</button>
-                        <button class="btn btn-danger m-1">Delete</button>
+                        <a href="{% url 'update_trainee' trainee.id %}" class="btn btn-success m-1">Edit</a>
+                        <a href="{% url 'delete_trainee' trainee.id %}" class="btn btn-danger m-1">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
