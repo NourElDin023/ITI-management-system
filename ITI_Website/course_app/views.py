@@ -1,30 +1,19 @@
 from django.shortcuts import render
-
+from course_app.models import Course
 
 # Create your views here.
 def course(request):
-    courses = [
-        {
-            "id": 0,
-            "name": "HTML",
-            "level": "beginner",
-            "start_date": "2023-01-01",
-            "end_date": "2023-01-15",
-        },
-        {
-            "id": 1,
-            "name": "CSS",
-            "level": "beginner",
-            "start_date": "2023-01-16",
-            "end_date": "2023-01-31",
-        },
-        {
-            "id": 2,
-            "name": "JavaScript",
-            "level": "beginner",
-            "start_date": "2023-02-01",
-            "end_date": "2023-02-15",
-        },
-    ]
-
+    courses = Course.objects.all()
     return render(request, "course.html", {"courses": courses})
+
+def courseInsert(request):
+    if request.method == "POST":
+        name = request.POST["courseName"]
+        level = request.POST["courseLevel"]
+        start = request.POST["courseStart"]
+        end = request.POST["courseEnd"]
+        Course.objects.create(name=name, level=level, start_date=start, end_date=end)
+    return render(request, "insert_course.html")
+
+def courseUpdate(request):
+    return render(request, "update_course.html")

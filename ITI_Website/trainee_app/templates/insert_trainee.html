@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block title %}Add Trainee{% endblock %} {% block header %}
+<a class="nav-link active" href="{% url 'home' %}">Home</a>
+{% if request.user.is_authenticated %}
+<a class="nav-link" href="{% url 'trainee' %}">Trainees</a>
+<a class="nav-link" href="{% url 'course' %}">Courses</a>
+<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a class="nav-link" href="{% url 'login' %}">Login</a>
+<a class="nav-link" href="{% url 'register' %}">Register</a>
+{% endif %} {% endblock %} {% block content %}
+<section>
+    <h3 class="text-center mb-5">Insert New Trainee</h3>
+    <form class="w-50 mx-auto" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="traineeName" class="form-label">Trainee Name</label>
+            <input type="text" class="form-control bg-dark-subtle focus-ring" id="traineeName" name="traineeName" style="
+                    --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                    --bs-focus-ring-x: 10px;
+                    --bs-focus-ring-y: 10px;
+                    --bs-focus-ring-blur: 4px;
+                " required />
+        </div>
+        <div class="mb-3">
+            <label for="traineeAge" class="form-label">Trainee Age</label>
+            <input type="number" class="form-control bg-dark-subtle focus-ring" id="traineeAge" name="traineeAge" style="
+                    --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                    --bs-focus-ring-x: 10px;
+                    --bs-focus-ring-y: 10px;
+                    --bs-focus-ring-blur: 4px;
+                " required />
+        </div>
+        <div class="mb-3">
+            <label for="traineeLevel" class="form-label">Trainee Level</label>
+            <select class="form-select bg-dark-subtle focus-ring" id="traineeLevel" name="traineeLevel" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                            --bs-focus-ring-x: 10px;
+                            --bs-focus-ring-y: 10px;
+                            --bs-focus-ring-blur: 4px" required>
+                <option value="" selected disabled hidden>Choose Level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="joinDate" class="form-label">Join Date</label>
+            <input type="date" class="form-control bg-dark-subtle focus-ring" id="joinDate" name="joinDate" style="
+                    --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                    --bs-focus-ring-x: 10px;
+                    --bs-focus-ring-y: 10px;
+                    --bs-focus-ring-blur: 4px;
+                " required />
+        </div>
+        <button type="submit" class="d-block btn btn-success w-50 mx-auto">
+            Add Trainee
+        </button>
+    </form>
+</section>
+{% endblock %}
