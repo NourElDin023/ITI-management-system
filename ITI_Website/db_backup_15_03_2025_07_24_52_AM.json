@@ -1,0 +1,150 @@
+[
+{
+  "model": "trainee_app.trainee",
+  "pk": 1,
+  "fields": {
+    "name": "NourElDin",
+    "age": 23,
+    "level": "Beginner",
+    "join_date": "2024-02-02",
+    "courses": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "trainee_app.trainee",
+  "pk": 2,
+  "fields": {
+    "name": "Ali Hassan",
+    "age": 22,
+    "level": "Beginner",
+    "join_date": "2024-03-01",
+    "courses": [
+      6
+    ]
+  }
+},
+{
+  "model": "trainee_app.trainee",
+  "pk": 3,
+  "fields": {
+    "name": "Sara Ahmed",
+    "age": 25,
+    "level": "Intermediate",
+    "join_date": "2024-02-15",
+    "courses": []
+  }
+},
+{
+  "model": "trainee_app.trainee",
+  "pk": 4,
+  "fields": {
+    "name": "Mohamed Khaled",
+    "age": 23,
+    "level": "Advanced",
+    "join_date": "2024-01-20",
+    "courses": [
+      4
+    ]
+  }
+},
+{
+  "model": "trainee_app.trainee",
+  "pk": 5,
+  "fields": {
+    "name": "Laila Mostafa",
+    "age": 21,
+    "level": "Beginner",
+    "join_date": "2024-03-05",
+    "courses": [
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "trainee_app.trainee",
+  "pk": 6,
+  "fields": {
+    "name": "Youssef Samir",
+    "age": 26,
+    "level": "Intermediate",
+    "join_date": "2024-02-10",
+    "courses": []
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 1,
+  "fields": {
+    "name": "JavaScript",
+    "level": "Beginner",
+    "start_date": "2025-02-04",
+    "end_date": "2026-07-07"
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 2,
+  "fields": {
+    "name": "Django",
+    "level": "Beginner",
+    "start_date": "2025-01-12",
+    "end_date": "2026-01-12"
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 3,
+  "fields": {
+    "name": "Python Basics",
+    "level": "Beginner",
+    "start_date": "2024-01-10",
+    "end_date": "2024-03-10"
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 4,
+  "fields": {
+    "name": "Django Web Development",
+    "level": "Intermediate",
+    "start_date": "2024-02-01",
+    "end_date": "2024-04-01"
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 5,
+  "fields": {
+    "name": "React Frontend",
+    "level": "Advanced",
+    "start_date": "2024-03-05",
+    "end_date": "2024-05-05"
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 6,
+  "fields": {
+    "name": "Database Design",
+    "level": "Intermediate",
+    "start_date": "2024-02-15",
+    "end_date": "2024-04-15"
+  }
+},
+{
+  "model": "course_app.course",
+  "pk": 7,
+  "fields": {
+    "name": "Machine Learning",
+    "level": "Advanced",
+    "start_date": "2024-03-20",
+    "end_date": "2024-06-20"
+  }
+}
+]
