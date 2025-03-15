@@ -12,11 +12,12 @@
             <thead>
                 <tr class="text-center align-middle">
                     <th scope="col">ID</th>
-                    <th scope="col" width="20%">Name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col" width="15%">Level</th>
-                    <th scope="col">Join Date</th>
-                    <th scope="col" width="15%">Actions</th>
+                    <th scope="col" width="20%" style="min-width:170px;">Name</th>
+                    <th scope="col" style="min-width:90px;">Age</th>
+                    <th scope="col" width="15%" style="min-width:115px;">Level</th>
+                    <th scope="col" style="min-width:145px;">Join Date</th>
+                    <th scope="col" width="25%">Courses</th>
+                    <th scope="col" width="15%" style="min-width:100px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,18 @@
                     <td>{{ trainee.age }} Years</td>
                     <td class="text-capitalize">{{ trainee.level }}</td>
                     <td>{{ trainee.join_date }}</td>
+                    <td>
+                        {% if trainee.courses.all %}
+                        {% for course in trainee.courses.all %}
+                        <span class="badge bg-info text-dark m-1"
+                            title="Level: {{ course.level }}, Start: {{ course.start_date }}, End: {{ course.end_date }}">
+                            {{ course.name }}
+                        </span>
+                        {% endfor %}
+                        {% else %}
+                        <span class="text-danger">No Courses Assigned</span>
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{% url 'update_trainee' trainee.id %}" class="btn btn-success m-1">Edit</a>
                         <a href="{% url 'delete_trainee' trainee.id %}" class="btn btn-danger m-1">Delete</a>
