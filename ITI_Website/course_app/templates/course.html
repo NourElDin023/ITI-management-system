@@ -16,6 +16,7 @@
                     <th scope="col">Level</th>
                     <th scope="col" width="15%">Start Date</th>
                     <th scope="col">End Date</th>
+                    <th scope="col">Trainees</th>
                     <th scope="col" width="15%">Actions</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td class="text-capitalize">{{ course.level }}</td>
                     <td>{{ course.start_date }}</td>
                     <td>{{ course.end_date }}</td>
+                    <td>{{ course.trainee_set.count }}</td>
                     <td>
                         <a href="{% url 'update_course' course.id %}" class="btn btn-success m-1">Edit</a>
                         <a href="{% url 'delete_course' course.id %}" class="btn btn-danger m-1">Delete</a>
