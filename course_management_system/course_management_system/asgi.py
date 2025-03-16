@@ -1,5 +1,5 @@
 """
-ASGI config for ITI_Website project.
+ASGI config for course_management_system project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ITI_Website.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'course_management_system.settings')
 
 application = get_asgi_application()

@@ -1,8 +1,8 @@
-ITI_Website/.vscode/settings.json
-ITI_Website/ITI_Website/__pycache__/*.*
-ITI_Website/trainee_app/__pycache__/*.*
-ITI_Website/trainee_app/migrations/__pycache__/*.*
-ITI_Website/trainee_app/__pycache__/urls.cpython-313.pyc
-ITI_Website/course_app/__pycache__/*.*
-ITI_Website/course_app/migrations/__pycache__/*.*
+course_management_system/.vscode/settings.json
+course_management_system/course_management_system/__pycache__/*.*
+course_management_system/trainee_app/__pycache__/*.*
+course_management_system/trainee_app/migrations/__pycache__/*.*
+course_management_system/trainee_app/__pycache__/urls.cpython-313.pyc
+course_management_system/course_app/__pycache__/*.*
+course_management_system/course_app/migrations/__pycache__/*.*
 commands.txt
