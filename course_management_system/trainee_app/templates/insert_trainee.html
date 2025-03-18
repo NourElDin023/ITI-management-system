@@ -8,6 +8,12 @@
 <a class="nav-link" href="{% url 'login' %}">Login</a>
 <a class="nav-link" href="{% url 'register' %}">Register</a>
 {% endif %} {% endblock %} {% block content %}
+<style>
+    option:checked {
+        background-color: #198754 !important;
+        color: white;
+    }
+</style>
 <section>
     <h3 class="text-center mb-5">Insert New Trainee</h3>
     <form class="w-md-75 w-50 mx-auto" method="POST">
@@ -60,7 +66,7 @@
                     --bs-focus-ring-y: 10px;
                     --bs-focus-ring-blur: 4px;">
                 {% for course in courses %}
-                <option value=" {{ course.id }}">{{ course.name }}</option>
+                <option value=" {{ course.id }}" class="my-1 m-2">{{ course.name }}</option>
                 {% endfor %}
             </select>
             <small class="text-white">Hold Ctrl to select multiple.</small>
