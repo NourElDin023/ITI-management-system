@@ -36,9 +36,10 @@
                             --bs-focus-ring-x: 10px;
                             --bs-focus-ring-y: 10px;
                             --bs-focus-ring-blur: 4px" required>
-                            <option value="Beginner" {% if trainee.level == "Beginner" %} selected {% endif %}>Beginner</option>
-                            <option value="Intermediate" {% if trainee.level == "Intermediate" %} selected {% endif %}>Intermediate</option>
-                            <option value="Advanced" {% if trainee.level == "Advanced" %} selected {% endif %}>Advanced</option>
+                <option value="Beginner" {% if trainee.level == "Beginner" %} selected {% endif %}>Beginner</option>
+                <option value="Intermediate" {% if trainee.level == "Intermediate" %} selected {% endif %}>Intermediate
+                </option>
+                <option value="Advanced" {% if trainee.level == "Advanced" %} selected {% endif %}>Advanced</option>
             </select>
         </div>
         <div class="mb-3">
@@ -49,6 +50,21 @@
                     --bs-focus-ring-y: 10px;
                     --bs-focus-ring-blur: 4px;
                 " required value="{{ trainee.join_date|date:'Y-m-d' }}" />
+        </div>
+        <div class="mb-3">
+            <label for="traineeCourses" class="form-label">Courses</label>
+            <select class="form-select bg-dark-subtle focus-ring" id="traineeCourses" name="traineeCourses" multiple
+                style="
+                    --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                    --bs-focus-ring-x: 10px;
+                    --bs-focus-ring-y: 10px;
+                    --bs-focus-ring-blur: 4px;">
+                {% for course in courses %}
+                <option value="{{ course.id }}" {% if course.id in selected_courses %}selected{% endif %}>
+                    {{ course.name }}
+                </option>
+                {% endfor %}
+            </select>
         </div>
         <button type="submit" class="d-block btn btn-success w-50 mx-auto">
             Update Trainee

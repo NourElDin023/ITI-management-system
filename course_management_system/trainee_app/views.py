@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from trainee_app.models import Trainee
+from course_app.models import Course
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -25,13 +27,25 @@ def traineeInsert(request):
         age = request.POST["traineeAge"]
         level = request.POST["traineeLevel"]
         join_date = request.POST["join_date"]
-        Trainee.objects.create(name=name, age=age, level=level, join_date=join_date)
+        selected_courses = request.POST.getlist("traineeCourses")
+        trainee = Trainee.objects.create(
+            name=name, age=age, level=level, join_date=join_date
+        )
+        print(selected_courses)
+
+        if selected_courses:
+            trainee.courses.set(Course.objects.filter(id__in=selected_courses))
+
         return redirect("trainee")
-    return render(request, "insert_trainee.html")
+    courses = Course.objects.all()
+    return render(request, "insert_trainee.html", {"courses": courses})
 
 
 def traineeUpdate(request, id):
-    traineeDetails = Trainee.objects.get(id=id)
+    trainee = get_object_or_404(Trainee, id=id)
+    courses = Course.objects.all()
+    selected_courses = trainee.courses.values_list("id", flat=True)
+
     if request.method == "POST":
         if (
             request.POST["traineeName"] == ""
@@ -39,23 +53,40 @@ def traineeUpdate(request, id):
             or request.POST["traineeLevel"] == ""
             or request.POST["join_date"] == ""
         ):
-            context = {}
-            context["error"] = "Please fill in all the fields"
-            context["trainee"] = traineeDetails
             return render(
                 request,
                 "update_trainee.html",
-                context,
+                {
+                    "trainee": trainee,
+                    "courses": courses,
+                    "selected_courses": selected_courses,
+                    "error": "Please fill in all fields",
+                },
             )
-        name = request.POST["traineeName"]
-        age = request.POST["traineeAge"]
-        level = request.POST["traineeLevel"]
-        join_date = request.POST["join_date"]
-        Trainee.objects.filter(id=id).update(
-            name=name, age=age, level=level, join_date=join_date
-        )
+
+        # ✅ Update trainee info
+        trainee.name = request.POST["traineeName"]
+        trainee.age = request.POST["traineeAge"]
+        trainee.level = request.POST["traineeLevel"]
+        trainee.join_date = request.POST["join_date"]
+
+        # ✅ Update courses
+        selected_courses = request.POST.getlist("traineeCourses")
+        trainee.courses.set(Course.objects.filter(id__in=selected_courses))
+
+        trainee.save()
+
         return redirect("trainee")
-    return render(request, "update_trainee.html", {"trainee": traineeDetails})
+
+    return render(
+        request,
+        "update_trainee.html",
+        {
+            "trainee": trainee,
+            "courses": courses,
+            "selected_courses": selected_courses,
+        },
+    )
 
 
 def traineeDelete(request, id):
