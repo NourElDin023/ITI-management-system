@@ -75,12 +75,27 @@ class TraineeInsertView(View):
 #     return render(request, "insert_trainee.html", {"courses": courses})
 
 
-def traineeUpdate(request, id):
-    trainee = get_object_or_404(Trainee, id=id)
-    courses = Course.objects.all()
-    selected_courses = trainee.courses.values_list("id", flat=True)
+class TraineeUpdateView(View):
+    def get(self, request, id):
+        trainee = get_object_or_404(Trainee, id=id)
+        courses = Course.objects.all()
+        selected_courses = trainee.courses.values_list("id", flat=True)
 
-    if request.method == "POST":
+        return render(
+            request,
+            "update_trainee.html",
+            {
+                "trainee": trainee,
+                "courses": courses,
+                "selected_courses": selected_courses,
+            },
+        )
+
+    def post(self, request, id):
+        trainee = get_object_or_404(Trainee, id=id)
+        courses = Course.objects.all()
+        selected_courses = trainee.courses.values_list("id", flat=True)
+
         if (
             request.POST["traineeName"] == ""
             or request.POST["traineeAge"] == ""
@@ -112,15 +127,53 @@ def traineeUpdate(request, id):
 
         return redirect("trainee")
 
-    return render(
-        request,
-        "update_trainee.html",
-        {
-            "trainee": trainee,
-            "courses": courses,
-            "selected_courses": selected_courses,
-        },
-    )
+
+# def traineeUpdate(request, id):
+#     trainee = get_object_or_404(Trainee, id=id)
+#     courses = Course.objects.all()
+#     selected_courses = trainee.courses.values_list("id", flat=True)
+
+#     if request.method == "POST":
+#         if (
+#             request.POST["traineeName"] == ""
+#             or request.POST["traineeAge"] == ""
+#             or request.POST["traineeLevel"] == ""
+#             or request.POST["join_date"] == ""
+#         ):
+#             return render(
+#                 request,
+#                 "update_trainee.html",
+#                 {
+#                     "trainee": trainee,
+#                     "courses": courses,
+#                     "selected_courses": selected_courses,
+#                     "error": "Please fill in all fields",
+#                 },
+#             )
+
+#         # ✅ Update trainee info
+#         trainee.name = request.POST["traineeName"]
+#         trainee.age = request.POST["traineeAge"]
+#         trainee.level = request.POST["traineeLevel"]
+#         trainee.join_date = request.POST["join_date"]
+
+#         # ✅ Update courses
+#         selected_courses = request.POST.getlist("traineeCourses")
+#         trainee.courses.set(Course.objects.filter(id__in=selected_courses))
+
+#         trainee.save()
+
+#         return redirect("trainee")
+
+#     return render(
+#         request,
+#         "update_trainee.html",
+#         {
+#             "trainee": trainee,
+#             "courses": courses,
+#             "selected_courses": selected_courses,
+#         },
+#     )
 
 
 def traineeDelete(request, id):
