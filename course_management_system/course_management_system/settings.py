@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "trainee_app.apps.TraineeAppConfig",
     "course_app.apps.CourseAppConfig",
+    "api",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -83,8 +85,8 @@ DATABASES = {
         "NAME": "django",
         "USER": "postgres",
         "PASSWORD": "root",
-        "HOST": "localhost", 
-        "PORT": "5432"
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -131,3 +133,8 @@ STATICFILES_DIRS = ["static"]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    "DEFAULT_PARSER_CLASSES": ("rest_framework.parsers.JSONParser",),
+}
