@@ -5,5 +5,5 @@ urlpatterns = [
     path("", course, name="course"),
     path("insert/", courseInsert, name="insert_course"),
     path("update/<int:id>/", courseUpdate, name="update_course"),
-    path("delete/<int:id>/", courseDelete, name="delete_course"),
+    path("delete/<int:pk>/", TraineeDeleteView.as_view(), name="delete_course"),
 ]
