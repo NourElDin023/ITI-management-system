@@ -6,3 +6,5 @@ course_management_system/trainee_app/__pycache__/urls.cpython-313.pyc
 course_management_system/course_app/__pycache__/*.*
 course_management_system/course_app/migrations/__pycache__/*.*
 commands.txt
+course_management_system/api/__pycache__/*
+course_management_system/api/migrations/*
