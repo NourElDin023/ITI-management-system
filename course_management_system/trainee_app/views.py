@@ -1,14 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from trainee_app.models import Trainee
 from course_app.models import Course
-from django.shortcuts import get_object_or_404
 from django.views import View
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DeleteView
+
+
+class TraineeListView(ListView):
+    model = Trainee
+    template_name = "trainee.html"
+    context_object_name = "trainees"  # This replaces the manually passed context
 
 
 # Create your views here.
-def trainee(request):
-    trainees = Trainee.objects.all()
-    return render(request, "trainee.html", {"trainees": trainees})
+# def trainee(request):
+#     trainees = Trainee.objects.all()
+#     return render(request, "trainee.html", {"trainees": trainees})
 
 
 class TraineeInsertView(View):
@@ -176,6 +183,12 @@ class TraineeUpdateView(View):
 #     )
 
 
-def traineeDelete(request, id):
-    Trainee.objects.filter(id=id).delete()
-    return redirect("trainee")
+class TraineeDeleteView(DeleteView):
+    model = Trainee
+    template_name = "trainee_confirm_delete.html"  # Create this template
+    success_url = reverse_lazy("trainee")  # Redirect after deletion
+
+
+# def traineeDelete(request, id):
+#     Trainee.objects.filter(id=id).delete()
+#     return redirect("trainee")
