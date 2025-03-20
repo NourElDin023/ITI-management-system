@@ -24,7 +24,7 @@ urlpatterns = [
     path("", home, name="home"),
     path("trainee/", include("trainee_app.urls")),
     path("course/", include("course_app.urls")),
-    path("register/", UserRegisterView.as_view(), name="register"),
-    path("login/", UserLoginView.as_view(), name="login"),
-    path("logout/", user_logout, name="logout"),
+    path("register/", register, name="register"),
+    path("login/", login_view, name="login"),
+    path("logout/", logout_view, name="logout"),
 ]

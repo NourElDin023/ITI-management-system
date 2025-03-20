@@ -10,36 +10,30 @@
 
 {% block content %}
 <section>
-    <div class="w-50 w-md-75 mx-auto">
-        <h2>Login</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="d-block btn btn-success w-50 mx-auto">Login</button>
-        </form>
-        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    <h2 class="text-center mt-5">Login</h2>
+    {% if messages %}
+    <div class="alert alert-danger w-50 mx-auto">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
     </div>
+    {% endif %}
 
-    <!-- <h2 class="text-center mt-5">username: admin <br> password: admin</h2>
     <form class="w-50 w-md-75 mx-auto" method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control bg-dark-subtle focus-ring" id="username" name="username"
-                value="admin"
+            <input type="text" class="form-control bg-dark-subtle focus-ring" id="username" name="username" required
                 style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control bg-dark-subtle focus-ring" id="password" name="password"
-                value="admin"
+            <input type="password" class="form-control bg-dark-subtle focus-ring" id="password" name="password" required
                 style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
         </div>
-        <div class="form-check mb-3">
-            <input type="checkbox" class="form-check-input bg-secondary" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Remember me</label>
-        </div>
-        <button type="submit" >Login</button>
-    </form> -->
+        <button type="submit" class="d-block btn btn-success w-50 mx-auto">Login</button>
+    </form>
+
+    <p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
 </section>
 {% endblock %}
