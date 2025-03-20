@@ -2,14 +2,18 @@ from django.shortcuts import render, redirect
 from course_app.models import Course
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
+@login_required(login_url="login")
 def course(request):
     courses = Course.objects.all()
     return render(request, "course.html", {"courses": courses})
 
 
+@login_required(login_url="login")
 def courseInsert(request):
     if request.method == "POST":
         name = request.POST["courseName"]
@@ -21,6 +25,7 @@ def courseInsert(request):
     return render(request, "insert_course.html")
 
 
+@login_required(login_url="login")
 def courseUpdate(request, id):
     courseDetails = Course.objects.get(id=id)
     if request.method == "POST":
@@ -35,7 +40,8 @@ def courseUpdate(request, id):
     return render(request, "update_course.html", {"course": courseDetails})
 
 
-class TraineeDeleteView(DeleteView):
+@method_decorator(login_required(login_url="login"), name="dispatch")
+class CourseDeleteView(DeleteView):
     model = Course
     template_name = "course_confirm_delete.html"  # Create this template
     success_url = reverse_lazy("course")  # Redirect after deletion

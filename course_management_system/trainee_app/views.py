@@ -4,8 +4,10 @@ from course_app.models import Course
 from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-
+@method_decorator(login_required(login_url="login"), name="dispatch")
 class TraineeListView(ListView):
     model = Trainee
     template_name = "trainee.html"
@@ -17,7 +19,7 @@ class TraineeListView(ListView):
 #     trainees = Trainee.objects.all()
 #     return render(request, "trainee.html", {"trainees": trainees})
 
-
+@method_decorator(login_required(login_url="login"), name="dispatch")
 class TraineeInsertView(View):
     def get(self, request):
         courses = Course.objects.all()
@@ -81,7 +83,7 @@ class TraineeInsertView(View):
 #     courses = Course.objects.all()
 #     return render(request, "insert_trainee.html", {"courses": courses})
 
-
+@method_decorator(login_required(login_url="login"), name="dispatch")
 class TraineeUpdateView(View):
     def get(self, request, id):
         trainee = get_object_or_404(Trainee, id=id)
@@ -182,7 +184,7 @@ class TraineeUpdateView(View):
 #         },
 #     )
 
-
+@method_decorator(login_required(login_url="login"), name="dispatch")
 class TraineeDeleteView(DeleteView):
     model = Trainee
     template_name = "trainee_confirm_delete.html"  # Create this template

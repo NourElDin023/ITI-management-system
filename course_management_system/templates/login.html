@@ -10,8 +10,18 @@
 
 {% block content %}
 <section>
-    <h2 class="text-center mt-5">username: admin <br> password: admin</h2>
-    <form class="w-md-75 w-50 mx-auto" method="POST">
+    <div class="w-50 w-md-75 mx-auto">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="d-block btn btn-success w-50 mx-auto">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </div>
+
+    <!-- <h2 class="text-center mt-5">username: admin <br> password: admin</h2>
+    <form class="w-50 w-md-75 mx-auto" method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
@@ -25,11 +35,11 @@
                 value="admin"
                 style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px">
         </div>
-        <div class="mb-3 form-check">
+        <div class="form-check mb-3">
             <input type="checkbox" class="form-check-input bg-secondary" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Remember me</label>
         </div>
-        <button type="submit" class="d-block btn btn-success w-50 mx-auto">Login</button>
-    </form>
+        <button type="submit" >Login</button>
+    </form> -->
 </section>
 {% endblock %}
